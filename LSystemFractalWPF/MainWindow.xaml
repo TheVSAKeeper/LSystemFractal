@@ -1,0 +1,44 @@
+﻿<Window x:Class="LSystemFractalWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lSystemFractalWpf="clr-namespace:LSystemFractalWPF"
+        mc:Ignorable="d"
+        Title="L-System Fractal"
+        Height="600"
+        Width="800"
+        d:DataContext="{d:DesignInstance lSystemFractalWpf:MainWindow}">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+            <Canvas x:Name="Canvas"
+                    Background="White" />
+        </ScrollViewer>
+
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="10">
+
+            <TextBlock Text="Iterations:" />
+            <TextBox Text="{Binding Iterations, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            <TextBlock Text="Angle:" />
+            <TextBox Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            <TextBlock Text="Distance:" />
+            <TextBox Text="{Binding Distance, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            <Button Content="Redraw"
+                    Click="OnRedrawButtonClicked" />
+
+            <ProgressBar x:Name="ProgressBar"
+                         Minimum="0"
+                         Maximum="100"
+                         Value="0"
+                         Height="25" />
+        </StackPanel>
+
+    </Grid>
+</Window>
